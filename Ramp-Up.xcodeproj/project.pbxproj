@@ -15,6 +15,7 @@
 		317A81F0212402A700370E8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 317A81EE212402A700370E8F /* LaunchScreen.storyboard */; };
 		317A81FB212402A700370E8F /* Ramp_UpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A81FA212402A700370E8F /* Ramp_UpTests.swift */; };
 		317A8206212402A700370E8F /* Ramp_UpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A8205212402A700370E8F /* Ramp_UpUITests.swift */; };
+		31C11866212549860030BD11 /* RampPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C11865212549860030BD11 /* RampPickerVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		317A8201212402A700370E8F /* Ramp-UpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ramp-UpUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		317A8205212402A700370E8F /* Ramp_UpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ramp_UpUITests.swift; sourceTree = "<group>"; };
 		317A8207212402A700370E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31C11865212549860030BD11 /* RampPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RampPickerVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				317A81E7212402A500370E8F /* RampPlacerVC.swift */,
+				31C11865212549860030BD11 /* RampPickerVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				317A81E8212402A500370E8F /* RampPlacerVC.swift in Sources */,
 				317A81E4212402A500370E8F /* AppDelegate.swift in Sources */,
+				31C11866212549860030BD11 /* RampPickerVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

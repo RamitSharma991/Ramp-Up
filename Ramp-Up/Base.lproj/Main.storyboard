@@ -22,8 +22,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTy-Ym-aJr">
+                                <rect key="frame" x="248" y="576" width="107" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="Yfk-9I-ev7"/>
+                                    <constraint firstAttribute="width" constant="107" id="bvD-6a-KhJ"/>
+                                </constraints>
+                                <state key="normal" image="rampIcon">
+                                    <color key="titleColor" red="0.02807740555" green="0.73212840030000004" blue="0.47280503559999998" alpha="0.69649537849999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="RampBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YNH-pZ-SDx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hvc-6a-9Ga" firstAttribute="bottom" secondItem="dTy-Ym-aJr" secondAttribute="bottom" constant="20" id="Hod-Hk-6pM"/>
+                            <constraint firstItem="Hvc-6a-9Ga" firstAttribute="trailing" secondItem="dTy-Ym-aJr" secondAttribute="trailing" constant="20" id="rPG-fm-cAT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Hvc-6a-9Ga"/>
                     </view>
                 </viewController>
@@ -32,4 +49,7 @@
             <point key="canvasLocation" x="141.59999999999999" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="rampIcon" width="107" height="71"/>
+    </resources>
 </document>
