@@ -11,10 +11,11 @@ import SceneKit
 import ARKit
 
 class RampPickerVC: UIViewController, ARSCNViewDelegate,UIPopoverPresentationControllerDelegate {
-
+    
     
     var sceneView: SCNView!
     var size: CGSize!
+    weak var rampPlacerVC: RampPlacerVC!
     
     init(size: CGSize) {
         super.init(nibName: nil, bundle: nil)
@@ -40,16 +41,53 @@ class RampPickerVC: UIViewController, ARSCNViewDelegate,UIPopoverPresentationCon
         camera.usesOrthographicProjection = true
         scene.rootNode.camera = camera
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        sceneView.addGestureRecognizer(tap)
         
-        let obj = SCNScene(named: "art.sceneassests/pipe.dae")
-        let node = obj?.rootNode.childNode(withName: "pipe", recursively: true)
+        let rotate = SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: CGFloat(0.01 * Double.pi), z: 0, duration: 0.1))
         
+        
+        
+        
+        
+        
+        var obj = SCNScene(named: "art.sceneassests/pipe.dae")
+        var node = obj?.rootNode.childNode(withName: "pipe", recursively: true)!
+        node?.runAction(rotate)
         node?.scale = SCNVector3Make(0.0022, 0.0022, 0.0022)
         node?.position = SCNVector3Make(0.9, 0.7, -1)
         scene.rootNode.addChildNode(node!)
         preferredContentSize = size
         
-
+        obj = SCNScene(named: "art.sceneassests/pyramid.dae")
+        node = obj?.rootNode.childNode(withName: "pyramid", recursively: true)!
+        node?.runAction(rotate)
+        node?.scale = SCNVector3Make(0.0058, 0.0058, 0.0058)
+        node?.position = SCNVector3Make(-1, -0.45, -1)
+        scene.rootNode.addChildNode(node!)
+        
+        
+        obj = SCNScene(named: "art.sceneassests/quarter.dae")
+        node = obj?.rootNode.childNode(withName: "quarter", recursively: true)!
+        node?.runAction(rotate)
+        node?.scale = SCNVector3Make(0.0058, 0.0058, 0.0058)
+        node?.position = SCNVector3Make(-1, -2.1, -1)
+        scene.rootNode.addChildNode(node!)
+        
+        
         // Do any additional setup after loading the view.
     }
+    
+    @objc func handleTap(_ gestureRecognizer: UIGestureRecognizer) {
+        
+        let p = gestureRecognizer.location(in: sceneView)
+        let hitResults = sceneView.hitTest(p, options: [:])
+        
+        if hitResults.count > 0 {
+            let node = hitResults[0].node
+            print(node.name!)
+            rampPlacerVC.onRampSlected(node.name!)
+        }
+    }
+    
 }
