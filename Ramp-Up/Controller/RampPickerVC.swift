@@ -44,35 +44,17 @@ class RampPickerVC: UIViewController, ARSCNViewDelegate,UIPopoverPresentationCon
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         sceneView.addGestureRecognizer(tap)
         
-        let rotate = SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: CGFloat(0.01 * Double.pi), z: 0, duration: 0.1))
+        let pipe = Ramp.getPipe()
+        Ramp.startRotation(node: pipe)
+        scene.rootNode.addChildNode(pipe)
         
+        let pyramid = Ramp.getPyramid()
+        Ramp.startRotation(node: pyramid)
+        scene.rootNode.addChildNode(pyramid)
         
-        
-        
-        
-        
-        var obj = SCNScene(named: "art.sceneassests/pipe.dae")
-        var node = obj?.rootNode.childNode(withName: "pipe", recursively: true)!
-        node?.runAction(rotate)
-        node?.scale = SCNVector3Make(0.0022, 0.0022, 0.0022)
-        node?.position = SCNVector3Make(0.9, 0.7, -1)
-        scene.rootNode.addChildNode(node!)
-        preferredContentSize = size
-        
-        obj = SCNScene(named: "art.sceneassests/pyramid.dae")
-        node = obj?.rootNode.childNode(withName: "pyramid", recursively: true)!
-        node?.runAction(rotate)
-        node?.scale = SCNVector3Make(0.0058, 0.0058, 0.0058)
-        node?.position = SCNVector3Make(-1, -0.45, -1)
-        scene.rootNode.addChildNode(node!)
-        
-        
-        obj = SCNScene(named: "art.sceneassests/quarter.dae")
-        node = obj?.rootNode.childNode(withName: "quarter", recursively: true)!
-        node?.runAction(rotate)
-        node?.scale = SCNVector3Make(0.0058, 0.0058, 0.0058)
-        node?.position = SCNVector3Make(-1, -2.1, -1)
-        scene.rootNode.addChildNode(node!)
+        let quarter = Ramp.getQuarter()
+        Ramp.startRotation(node: quarter)
+        scene.rootNode.addChildNode(quarter)
         
         
         // Do any additional setup after loading the view.
